@@ -160,7 +160,7 @@ Contributi, segnalazioni di bug e richieste di funzionalità sono benvenute! Per
 
 - **Giulio Pedicone**
 - **Vincenzo Villanova**  
-- **Francesco Prospero antonio Pio Virzì**  
+- **Francesco Prospero Antonio Virzì**  
 
 *Progetto realizzato per il corso di Machine Learning 2025*  
 *Università degli Studi di Catania*
