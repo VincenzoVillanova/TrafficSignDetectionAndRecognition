@@ -20,16 +20,17 @@ Il cuore dell'applicazione è un modello **YOLOv11-nano** personalizzato (`best.
 
 ```
 TrafficSignDetectionAndRecognition/
-├── 📁 image_test/          # Immagini di esempio per il testing
+├── 📁 image_test/                            # Immagini di esempio per il testing
 ├── 📁 Video/
-│   └── video.mp4          # Video dimostrativo
-├── 📄 best.pt             # Modello YOLOv11 addestrato
-├── 📄 main.py             # Applicazione Streamlit principale
-├── 📄 requirements.txt    # Dipendenze Python
-├── 📄 .env                # Variabili d'ambiente
-├── 📓 YOLOv11-nano.ipynb  # Notebook training e testing
-├── 📓 Dataset.ipynb       # Notebook download dataset
-└── 📄 README.md           # Documentazione
+│   └── video.mp4                             # Video dimostrativo
+├── 📄 best.pt                                # Modello YOLOv11 addestrato
+├── 📄 main.py                                # Applicazione Streamlit principale
+├── 📄 requirements.txt                       # Dipendenze Python
+├── 📄 .env                                   # Variabili d'ambiente
+├── 📓 YOLOv11-nano.ipynb                     # Notebook training e testing
+├── 📓 Dataset.ipynb                          # Notebook download dataset
+├── 📓 MachineLearningProjectReport.pdf       # Relazione progetto
+└── 📄 README.md                              # Documentazione
 ```
 
 ---

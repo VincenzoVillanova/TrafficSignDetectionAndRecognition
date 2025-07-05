@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 # Carica variabili d'ambiente
 load_dotenv()
 
-# Percorso modello YOLO
 YOLO_MODEL_PATH = os.getenv("YOLO_MODEL_PATH")
 
 # Caricamento modello
@@ -25,21 +24,25 @@ if uploaded_file is not None:
         image = Image.open(uploaded_file)
         st.image(image, caption="🖼️ Immagine caricata", use_container_width=True)
 
-        with tempfile.NamedTemporaryFile(suffix=".jpg") as temp:
+        with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as temp:
             image.convert("RGB").save(temp.name)
+            temp_path = temp.name 
 
-            if st.button("Esegui predizione"):
-                with st.spinner("🧠 In esecuzione YOLO..."):
-                    results = model.predict(
-                        source=temp.name, save=False, save_txt=False
-                    )
-                    annotated_bgr = results[0].plot()
-                    annotated_rgb = cv2.cvtColor(annotated_bgr, cv2.COLOR_BGR2RGB)
-                    st.image(
-                        annotated_rgb,
-                        caption="📍 Risultato YOLO",
-                        use_container_width=True,
-                    )
+        if st.button("Esegui predizione"):
+            with st.spinner("🧠 In esecuzione YOLO..."):
+                results = model.predict(
+                    source=temp_path, save=False, save_txt=False
+                )
+                annotated_bgr = results[0].plot()
+                annotated_rgb = cv2.cvtColor(annotated_bgr, cv2.COLOR_BGR2RGB)
+                st.image(
+                    annotated_rgb,
+                    caption="📍 Risultato YOLO",
+                    use_container_width=True,
+                )
+
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
 
     except Exception as e:
         st.error(f"Errore nell'apertura dell'immagine: {e}")
